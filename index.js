@@ -125,4 +125,12 @@ Cache.prototype.del = function(key) {
   return getPromise(this, 'del', this.config.keyPrefix + key);
 };
 
+/**
+ * Closes all active memcached connections.
+ * @return {void}
+ */
+Cache.prototype.end = function() {
+  return this._cache.end();
+};
+
 module.exports = Cache;
